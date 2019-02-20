@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pyramide</title>
+</head>
+<body>
+
+        <p id="mesageErreur"></p>
+    <form>
+        <input type="number" id="entreA" placeholder="entre nombre 1"/>
+        <input type="number" id="entreB" placeholder="entre nombre 2"/>
+        <button type="button" onclick="pyram()">Desinner</button>
+    </form>
+    <div id="contentPyram"></div>
+
+    <!--javaScript-->
+    <script>
+    function pyram(){
+            var a = parseInt(document.getElementById('entreA').value);
+            var b = parseInt(document.getElementById('entreB').value);
+           var content = document.getElementById('contentPyram');
+            var tab = [a];
+            if(a<10 && a>=1){
+                for(var i = 0; i < b; i++){
+        
+                    for(var j = 0; j<i+1; j++){
+                        content.innerHTML +=tab[j]; 
+                        if(j==i){
+                        content.innerHTML+='<br>';
+                        a = a+1;
+                        tab.push(a);   
+                        }    
+                    }    
+                }
+            }else{
+                var erreur = document.getElementById('mesageErreur');
+                erreur.innerHTML ='veuiller entre dans nonbre 1 une valeur entre 1 a 9'; 
+            }
+           
+    }
+    pyram();
+        
+    </script>
+</body>
+</html>
